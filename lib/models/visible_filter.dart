@@ -1,0 +1,1 @@
+enum VisibleFilter{ALL , ACTIVE, COMPLETE}
