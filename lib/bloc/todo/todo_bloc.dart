@@ -27,6 +27,7 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
 
   Stream<TodoState> test() async*{
     var todos = await repository.getTodos();
-    yield TodoLoadSuccess(loadTodos: todos.map((content) => Todo(content.task ,complete: content.isComplete , id: content.id, note: content.note)));
+//    yield TodoLoadSuccess(loadTodos: todos.map((content) => Todo(content.createdAt ,complete: false , id: content.id, note: content.avatar)).toList());
+    yield TodoLoadSuccess(loadTodos: todos.map((content) => Todo(content.id ,complete: content.isComplete , id: content.id, note: content.note)).toList());
   }
 }

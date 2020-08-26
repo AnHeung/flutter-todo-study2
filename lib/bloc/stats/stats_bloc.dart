@@ -38,8 +38,8 @@ class StatsBloc extends Bloc<StatsEvent, StatsState> {
   }
 
   Stream<StatsState> _mapToUpdate(StatsUpdate event) async* {
-    int numActive = event.updateList.map((todo) => !todo.complete).toList().length;
-    int numComplete = event.updateList.map((todo) => todo.complete).toList().length;
+    int numActive = event.updateList.where((todo) => !todo.complete).toList().length;
+    int numComplete = event.updateList.where((todo) => todo.complete).toList().length;
     yield StatsLoadSuccess(numActive:  numActive , numComplete:  numComplete);
   }
 }

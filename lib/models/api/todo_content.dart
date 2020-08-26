@@ -1,6 +1,5 @@
 
 import 'package:json_annotation/json_annotation.dart';
-import 'package:retrofit/http.dart';
 
 part 'todo_content.g.dart';
 

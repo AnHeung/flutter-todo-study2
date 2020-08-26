@@ -39,7 +39,7 @@ class App extends StatelessWidget {
                   create: (_)=>FilterTodoBloc(todoBloc: BlocProvider.of<TodoBloc>(context)),
                 ),
                 BlocProvider(
-                  create: (_)=>StatsBloc()..add(StatsInitialize()),
+                  create: (_)=>StatsBloc(todoBloc: BlocProvider.of<TodoBloc>(context))..add(StatsInitialize()),
                 ),
               ],
               child: HomeScreen(),
