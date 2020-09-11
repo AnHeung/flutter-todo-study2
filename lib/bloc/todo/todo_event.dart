@@ -20,24 +20,24 @@ class TodoAdded extends TodoEvent{
 }
 
 class TodoUpdate extends TodoEvent{
-  final List<Todo> updateTodos;
+  final Todo updateTodo;
 
-  TodoUpdate({this.updateTodos});
+  TodoUpdate({this.updateTodo});
 
   @override
-  List<Object> get props =>[updateTodos];
+  List<Object> get props =>[updateTodo];
 }
 
 class TodoDelete extends TodoEvent{
 
-  final List<Todo> deletedTodos;
+  final Todo deletedTodo;
 
-  TodoDelete({this.deletedTodos});
+  TodoDelete({this.deletedTodo});
 
   @override
-  List<Object> get props =>[deletedTodos];
+  List<Object> get props =>[deletedTodo];
 }
 
 class ClearComplete extends TodoEvent{}
 
-class ToggleAllComplete extends TodoEvent{}
+class ToggleAll extends TodoEvent{}

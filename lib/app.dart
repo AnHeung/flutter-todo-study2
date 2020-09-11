@@ -6,6 +6,7 @@ import 'package:todo_test2/bloc/stats/stats_bloc.dart';
 import 'package:todo_test2/bloc/tab/tab_cubit.dart';
 import 'package:todo_test2/bloc/todo/todo_bloc.dart';
 import 'package:todo_test2/constants/routes.dart';
+import 'package:todo_test2/models/todo.dart';
 import 'package:todo_test2/repository/repository.dart';
 import 'package:todo_test2/screen/add_edit_screen.dart';
 import 'package:todo_test2/screen/home_screen.dart';
@@ -44,7 +45,9 @@ class App extends StatelessWidget {
               ],
               child: HomeScreen(),
             ),
-            Routes.addScreen: (context)=> AddEditScreen(),
+            Routes.addScreen: (context)=> AddEditScreen(isEditing: false, onSaveCallback: (note,task){
+              BlocProvider.of<TodoBloc>(context).add(TodoAdded(addedTodo: Todo(task , note: note)));
+            }),
           },
           onGenerateRoute:(_)=>SplashScreen.route(),
         ),

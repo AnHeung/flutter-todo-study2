@@ -1,4 +1,6 @@
 import 'package:equatable/equatable.dart';
+import 'package:todos_repository_core/todos_repository_core.dart';
+import 'package:uuid/uuid.dart';
 
 class Todo extends Equatable {
   final bool complete;
@@ -7,10 +9,10 @@ class Todo extends Equatable {
   final String task;
 
   Todo(this.task, {
-    this.complete,
+    this.complete = false,
     String id,
     String note,
-  }):this.note = note ?? '', this.id = id ?? 'id';
+  }):this.note = note ?? '', this.id = id ?? Uuid().v4();
 
   Todo copyWith({bool complete ,String id, String note , String task})=> Todo(
     task ?? this.task,

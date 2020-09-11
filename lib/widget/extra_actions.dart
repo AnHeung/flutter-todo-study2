@@ -14,19 +14,19 @@ class ExtraActions extends StatelessWidget{
             case ExtraAction.CLEAR_COMPLETE :
                BlocProvider.of<TodoBloc>(context).add(ClearComplete());
               break;
-            case ExtraAction.TOGGLE_ALL_COMPLETE :
-              BlocProvider.of<TodoBloc>(context).add(ToggleAllComplete());
+            case ExtraAction.TOGGLE_ALL :
+              BlocProvider.of<TodoBloc>(context).add(ToggleAll());
               break;
           }
         },
         itemBuilder:(BuildContext context)=><PopupMenuItem<ExtraAction>>[
           PopupMenuItem<ExtraAction>(
-            value: ExtraAction.TOGGLE_ALL_COMPLETE,
-            child: Text('all Complete'),
+            value: ExtraAction.TOGGLE_ALL,
+            child: Text('toggle All'),
           ),
           PopupMenuItem<ExtraAction>(
             value: ExtraAction.CLEAR_COMPLETE,
-            child: Text('toggle All'),
+            child: Text('all Complete'),
           ),
         ],
 

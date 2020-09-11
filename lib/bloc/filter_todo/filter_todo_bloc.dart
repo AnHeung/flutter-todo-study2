@@ -8,7 +8,6 @@ import 'package:todo_test2/models/todo.dart';
 import 'package:todo_test2/models/visible_filter.dart';
 
 part 'filter_todo_event.dart';
-
 part 'filter_todo_state.dart';
 
 class FilterTodoBloc extends Bloc<FilterTodoEvent, FilterTodoState> {
@@ -38,7 +37,7 @@ class FilterTodoBloc extends Bloc<FilterTodoEvent, FilterTodoState> {
     }
   }
 
-  Stream<FilterTodoState> _mapEventToChangeFilter(FilterUpdate event) {
+   _mapEventToChangeFilter(FilterUpdate event) {
     if (todoBloc.state is TodoLoadSuccess) {
       final updateTodos = (todoBloc.state as TodoLoadSuccess).loadTodos;
 
@@ -58,5 +57,11 @@ class FilterTodoBloc extends Bloc<FilterTodoEvent, FilterTodoState> {
 
   Stream<FilterTodoState> _mapEventToUpdate(FilterTodoUpdate event) async* {
       yield FilterTodoLoadSuccess(loadTodos: event.updateTodos , filter: VisibleFilter.ALL);
+  }
+
+  @override
+  Future<Function> close() {
+    subscription.cancel();
+    return super.close();
   }
 }

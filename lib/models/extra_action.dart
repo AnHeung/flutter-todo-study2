@@ -1,1 +1,1 @@
-enum ExtraAction { TOGGLE_ALL_COMPLETE , CLEAR_COMPLETE }
+enum ExtraAction { TOGGLE_ALL , CLEAR_COMPLETE }
